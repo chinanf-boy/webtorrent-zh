@@ -9,13 +9,15 @@
 [size-img]: https://packagephobia.now.sh/badge?p=Name
 [size]: https://packagephobia.now.sh/result?p=Name
 
-「 来自 webtorrent/webtorrent (js) 的 播种技术，让我们开始在网上播种吧。」
+「 来自 webtorrent/webtorrent (js) 的 播种技术，让我们开始在浏览器上播种吧。」
+
+> 这里’播种‘的意思，就是把内容当作'种子'，供给大家下载的行为。
 
 [中文](./readme.zh.md) | [english](https://github.com/webtorrent/webtorrent)
 
 ---
 
-## 校对 🀄️
+## 校对 ✅
 
 <!-- doc-templite START generated -->
 <!-- repo = 'webtorrent/webtorrent' -->
@@ -34,7 +36,7 @@
 > 文档来自 `webtorrent/webtorrent/blob/master/docs`
 
 - [x] get-started.zh.md > readme.md
-- [ ] [api 文档](api.zh.md)
+- [x] [api 文档](api.zh.md)
 - [x] [faq](faq.zh.md)
 - [x] [种子库](free-torrents.zh.md)
 
@@ -70,6 +72,9 @@
 # 开始使用 WebTorrent
 
 **WebTorrent**是第一个在**浏览器**工作的 torrent 客户端。它很容易上手！
+
+> `torrent`有连发，急流的中文意思，虽不是常说的’种子‘那意思，但统称为种子，更符合中文化。所以 `torrent` == 种子。之前我们常用`BT(BitTorrent)种子`来描述，不可描述的东西，现在`WT(WebTorrent)种子`，看来，也已经快啦。
+> 一切，都可播种。
 
 ## 安装
 
@@ -120,7 +125,7 @@ client.add(torrentId, function(torrent) {
 });
 ```
 
-这支持视频，音频，图像，PDF，Markdown，[和更多][render-media]，开箱即用。还有其他方法，可以直接访问文件内容，包括 node-样式的流媒体，Buffer 或 Blob URL。
+这支持视频，音频，图像，PDF，Markdown，[和更多][render-media]，开箱即用。还有其他方法，可以直接访问文件内容，包括 node-样式的 Stream，Buffer 或 Blob URL。
 
 视频和音频内容可以流式传输，即在下载完整文件之前，开始播放。播种工作也是如此 - WebTorrent 根据需要，从网络中，动态获取所需的 torrent 片段。
 
@@ -167,6 +172,9 @@ client.add(magnetURI, {path: '/path/to/folder'}, function(torrent) {
 最重要的是，它是一个单独的 HTML 页面，低于 70 行！
 
 如果 torrent 包含图像，视频，音频或其他可播放文件（使用支持的编解码器），则即使在下载完整内容之前，它们也能添加到 DOM ，并进行流式传输。
+
+> [x] [index.html](./index.html) 示例源码
+
 
 ```html
 <!DOCTYPE html>
@@ -268,6 +276,8 @@ client.add(magnetURI, {path: '/path/to/folder'}, function(torrent) {
 你现在可以在[CodePen](http://codepen.io/yciabaud/full/XdOeWM/)试试，看看它的样子，玩玩它！
 
 随意更换`torrentId`，换成其他 torrent 文件，或磁力链接，但请记住，浏览器只能下载，由 WebRTC 对端（web 对端）播种的种子。使用[WebTorrent 桌面程序](https:./desktop.zh.md)要么[Instant.io](https://instant.io)，将种子(torrent)，播种到 WebTorrent 网络。
+
+> [x] [stream.html](./stream.html) 示例源码
 
 ```html
 <!DOCTYPE html>
