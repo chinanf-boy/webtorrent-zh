@@ -271,11 +271,11 @@ client.add(magnetURI, {path: '/path/to/folder'}, function(torrent) {
 
 ### HTML 示例：状态显示 UI
 
-这个完整的 HTML 示例，模仿了[webtorrent.io](https://webtorrent.io)主页的UI。它下载了[sintel.torrent](https:./torrents.zh.md/sintel.torrent)文件，在浏览器中，流式传输并向用户输出一些统计信息（对端(可供给的网点)，进度，剩余时间，速度...）。
+这个完整的 HTML 示例，模仿了[webtorrent.io](https://webtorrent.io)主页的UI。它下载了[sintel.torrent](https://webtorrent.io/torrents/sintel.torrent)文件，在浏览器中，流式传输并向用户输出一些统计信息（对端(可供给的网点)，进度，剩余时间，速度...）。
 
 你现在可以在[CodePen](http://codepen.io/yciabaud/full/XdOeWM/)试试，看看它的样子，玩玩它！
 
-随意更换`torrentId`，换成其他 torrent 文件，或磁力链接，但请记住，浏览器只能下载，由 WebRTC 对端（web 对端）播种的种子。使用[WebTorrent 桌面程序](https:./desktop.zh.md)要么[Instant.io](https://instant.io)，将种子(torrent)，播种到 WebTorrent 网络。
+随意更换`torrentId`，换成其他 torrent 文件，或磁力链接，但请记住，浏览器只能下载，由 WebRTC 对端（web 对端）播种的种子。使用[WebTorrent Desktop](https://webtorrent.io/desktop)要么[Instant.io](https://instant.io)，将种子(torrent)，播种到 WebTorrent 网络。
 
 > [x] [stream.html](./stream.html) 示例源码
 
@@ -344,7 +344,7 @@ client.add(magnetURI, {path: '/path/to/folder'}, function(torrent) {
           <span class="show-seed">播种中 </span>
           <code>
             <!-- Informative link to the torrent file -->
-            <a id="torrentLink" href="https:./torrents.zh.md/sintel.torrent"
+            <a id="torrentLink" href="https://webtorrent.io/torrents/sintel.torrent"
               >sintel.torrent</a
             >
           </code>
