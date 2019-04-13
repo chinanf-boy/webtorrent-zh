@@ -1,8 +1,8 @@
-# WebTorrent Documentation
+# WebTorrent 文档
 
-WebTorrent是一个流媒体洪流客户端**Node.js的**和**卷筒纸**。WebTorrent在两种环境中都提供相同的API。
+WebTorrent是一个流媒体种子客户端，有**Node.js的**和**Web**两版本。WebTorrent在两种环境中，都提供相同的API。
 
-要在浏览器中使用WebTorrent，[的WebRTC]需要支持（Chrome，Firefox，Opera，Safari）。
+要在浏览器中使用WebTorrent，需要支持[WebRTC]（Chrome，Firefox，Opera，Safari）。
 
 [webrtc]: https://en.wikipedia.org/wiki/WebRTC
 
@@ -74,7 +74,7 @@ if (WebTorrent.WEBRTC_SUPPORT) {
 -   磁铁uri（弦）
 -   种子文件（缓冲区）
 -   info hash（十六进制字符串或缓冲区）
--   解析洪流（来自[parse-torrent](https://github.com/webtorrent/parse-torrent)）
+-   解析种子（来自[parse-torrent](https://github.com/webtorrent/parse-torrent)）
 -   http / https url到torrent文件（String）
 -   torrent文件到torrent文件的路径（String）*（仅限Node.js）*
 
@@ -92,7 +92,7 @@ if (WebTorrent.WEBRTC_SUPPORT) {
 
 如果`ontorrent`指定，然后它将被调用**这个**torrent已准备好使用（即元数据可用）。注意：这与将要触发的'torrent'事件截然不同**所有**种子。
 
-如果您希望立即访问torrent对象以便在从网络中获取元数据时侦听事件，则使用返回值`client.add`。如果您只想要文件数据，请使用`ontorrent`或'洪流'事件。
+如果您希望立即访问torrent对象以便在从网络中获取元数据时侦听事件，则使用返回值`client.add`。如果您只想要文件数据，请使用`ontorrent`或'种子'事件。
 
 如果你提供`opts.store`，它将被称为`opts.store(chunkLength, storeOpts)`有：
 
@@ -123,8 +123,8 @@ if (WebTorrent.WEBRTC_SUPPORT) {
 
 **注意：**每个torrent都需要有一个名字。如果没有明确提供`opts.name`，将使用以下逻辑自动确定：
 
--   如果所有文件共享公共路径前缀，则将使用该前缀。例如，如果所有文件路径都以`/imgs/`洪流名称将是`imgs`。
--   否则，具有名称的第一个文件将确定torrent名称。例如，如果第一个文件是`/foo/bar/baz.txt`，洪流名称将是`baz.txt`。
+-   如果所有文件共享公共路径前缀，则将使用该前缀。例如，如果所有文件路径都以`/imgs/`种子名称将是`imgs`。
+-   否则，具有名称的第一个文件将确定torrent名称。例如，如果第一个文件是`/foo/bar/baz.txt`，种子名称将是`baz.txt`。
 -   如果没有文件有名称（比如所有文件都是Buffer或Stream对象），那么就像“Unnamed Torrent”这样的名字<id>“将会产生。
 
 **注意：**每个文件都需要有一个名称。对于文件系统路径或W3C File对象，该名称包含在对象中。对于缓冲区或可读流类型，a`name`可以在对象上设置属性，如下所示：
@@ -191,7 +191,7 @@ torrent的磁力链（字符串）。
 
 ## `torrent.torrentFile`
 
-`.torrent`洪流的文件（缓冲区）。
+`.torrent`种子的文件（缓冲区）。
 
 ## `torrent.torrentFileBlobURL` *(browser only)*
 
@@ -243,7 +243,7 @@ Torrent下载位置。
 
 ## `torrent.destroy([callback])`
 
-别名`client.remove(torrent)`。如果`callback`如果提供了，它将在洪流被完全销毁时被调用，即所有打开的套接字都被关闭，并且存储被关闭。
+别名`client.remove(torrent)`。如果`callback`如果提供了，它将在种子被完全销毁时被调用，即所有打开的套接字都被关闭，并且存储被关闭。
 
 ## `torrent.addPeer(peer)`
 
@@ -265,7 +265,7 @@ Torrent下载位置。
 
 ## `torrent.removePeer(peer)`
 
-从torrent群中删除对等体。这是高级功能。通常，您不需要打电话`torrent.removePeer()`手动。当它们很慢或者没有需要的部分时，WebTorrent会自动从洪流群中删除对等体。
+从torrent群中删除对等体。这是高级功能。通常，您不需要打电话`torrent.removePeer()`手动。当它们很慢或者没有需要的部分时，WebTorrent会自动从种子群中删除对等体。
 
 该`peer`参数应该是一个地址（即“ip：port”字符串），一个peer id（十六进制字符串）或者`simple-peer`实例。
 
@@ -336,7 +336,7 @@ client.add(magnetURI, function (torrent) {
 
 ## `torrent.on('ready', function () {})`
 
-当洪流准备好被使用时发出（即元数据可用并且存储准备就绪）。
+当种子准备好被使用时发出（即元数据可用并且存储准备就绪）。
 
 ## `torrent.on('warning', function (err) {})`
 
@@ -344,7 +344,7 @@ client.add(magnetURI, function (torrent) {
 
 ## `torrent.on('error', function (err) {})`
 
-当洪流遇到致命错误时发出。当发生这种情况时，torrent会自动销毁并从客户端中删除。
+当种子遇到致命错误时发出。当发生这种情况时，torrent会自动销毁并从客户端中删除。
 
 **注意：**发出Torrent错误`torrent.on('error')`。如果torrent实例上没有“错误”事件处理程序，则会发出错误`client.on('error')`。这可以防止抛出未捕获的异常（未处理的'错误'事件），但这使得无法区分客户端错误与torrent错误。Torrent错误不是致命的，客户端之后仍然可以使用。因此，始终在两个地方听错（`client.on('error')`和`torrent.on('error')`）。
 

@@ -35,8 +35,8 @@
 
 - [x] get-started.zh.md > readme.md
 - [ ] [api 文档](api.zh.md)
-- [ ] [faq](faq.zh.md)
-- [ ] [种子库：世界](free-torrents.zh.md)
+- [x] [faq](faq.zh.md)
+- [x] [种子库](free-torrents.zh.md)
 
 ### 贡献
 
